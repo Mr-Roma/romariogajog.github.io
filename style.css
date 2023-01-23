@@ -1,0 +1,13 @@
+
+.jumbotron{
+    padding-top: 7rem;
+    background-color: var(--bs-body-bg);
+}
+
+#projects{
+    background-color: aliceblue;
+}
+
+section{
+    padding-top: 5rem;
+}
