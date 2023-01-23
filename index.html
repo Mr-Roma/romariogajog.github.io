@@ -174,20 +174,30 @@
                 </div>
                 <div class="row justify-content-center">
                     <div class="col-md-6">
-                        <form>
+
+                      <div class="alert alert-success alert-dismissible fade show d-none my-alert" role="alert">
+                        <strong>THANK YOU!</strong> Your Message have been successfully submitted.
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                      </div>
+
+                        <form name="Romario-contact-form">
                             <div class="mb-3">
                               <label for="Name" class="form-label" data-aos="fade-right"data-aos-duration="1000" data-aos-delay="200">Nama Lengkap</label>
-                              <input type="text" class="form-control" id="name" aria-describedby="name">
+                              <input type="text" class="form-control" id="name" aria-describedby="name" name="nama">
                             </div>
                             <div class="mb-3">
                                 <label for="email" class="form-label" data-aos="fade-right"data-aos-duration="1000" data-aos-delay="400">Email</label>
-                                <input type="email" class="form-control" id="email" aria-describedby="email">
+                                <input type="email" class="form-control" id="email" aria-describedby="email" name="email">
                             </div> 
                                 <div class="mb-3">
                                     <label for="pesan" class="form-label" data-aos="fade-right"data-aos-duration="1000" data-aos-delay="600">Pesan</label>
-                                    <textarea class="form-control" id="pesan" rows="3"></textarea>
+                                    <textarea class="form-control" id="pesan" rows="3" name="pesan"></textarea>
                                 </div>   
-                            <button type="submit" class="btn btn-primary"  style="background-color: var(--bs-dark-text); color:var(--bs-body-bg)">Submit</button>
+                            <button type="submit" class="btn btn-primary btn-submit"  style="background-color: var(--bs-dark-text); color:var(--bs-body-bg)">Submit</button>
+                            <button class="btn btn-primary btn-loading d-none" type="button" disabled>
+                              <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+                              Loading...
+                            </button>
                         </form>
                     </div>
                 </div>
@@ -280,6 +290,40 @@
         })
     })
   })()
+    </script>
+
+    <script>
+      const scriptURL = 'https://script.google.com/macros/s/AKfycbwnYr6sejmDf-B9DykahpARx9g_I4pio3zIity-iR-nPlQ4peTgvEw_VrWvwCmz87Gx/exec'
+      const form = document.forms['Romario-contact-form']
+      const btnSubmit = document.querySelector('.btn-submit')
+      const btnLoading = document.querySelector('.btn-loading')
+      const btnAlert = document.querySelector('.my-alert')
+    
+      form.addEventListener('submit', e => {
+        e.preventDefault()
+
+        //Tombol Submit di klik ganti dengan tombol loading//
+        btnLoading.classList.toggle('d-none')
+        btnSubmit.classList.toggle('d-none')
+      
+
+
+        fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+          .then(response => {
+            //tampilkan tombol kirim hilangkan tombol loading
+            btnLoading.classList.toggle('d-none')
+            btnSubmit.classList.toggle('d-none')
+
+            //tampilkan alert sesudah terkirim
+            btnAlert.classList.toggle('d-none')
+
+            //reset formnya
+            form.reset()
+
+            console.log('Success!', response)
+          })
+          .catch(error => console.error('Error!', error.message))
+      })
     </script>
 
   </body>
