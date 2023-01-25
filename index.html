@@ -35,7 +35,7 @@
             <ul class="navbar-nav ms-auto">
               <li class="nav-item">
                 <a class="nav-link active" aria-current="page" href="#home">Home</a>
-              </li>
+              </li>                         
               <li class="nav-item">
                 <a class="nav-link" href="#about">About</a>
               </li>
@@ -103,10 +103,10 @@
                 </div>
                 <div class="row justify-content-center fs-5 text-center">
                     <div class="col-md-4"data-aos="fade-right"data-aos-duration="1000">
-                        <p>An Informatics student in Telkom University, who's passionate and enthusiast about technology and social life</p>
+                        <p>An Informatics student in Telkom University, who's passionate and enthusiast about technology, futsal, fitness, making videos and social life</p>
                     </div>
                     <div class="col-md-4" data-aos="fade-left"data-aos-duration="1000" data-aos-delay="300">
-                        <p>On another hand I also love to play Futsal, fitness and making videos</p>
+                        <p>I made this Portfolio Website to show some of my projects during i studied web programming.</p>
                     </div>
                 </div>
             </div>
@@ -130,7 +130,7 @@
                             <img src="Gambar/project1.png" class="card-img-top" alt="...">
                             <div class="card-body">
                               <h5 class="card-title">Regristration Form</h5>
-                              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                              <p class="card-text">Simple Form untuk registrasi.</p>
                               <a href="regis.html" class="btn btn-primary" style="background-color: var(--bs-dark-text); color:var(--bs-body-bg)">Discover</a>
                             </div>
                           </div>
@@ -140,7 +140,7 @@
                             <img src="Gambar/project2.png" class="card-img-top" alt="...">
                             <div class="card-body">
                               <h5 class="card-title">Simple E-commerce</h5>
-                              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                              <p class="card-text">Mencoba membuat simple E-commerce landing page tapi belum final.</p>
                               <a href="ecommerce.html" class="btn btn-primary"  style="background-color: var(--bs-dark-text); color:var(--bs-body-bg)">Discover</a>
                             </div>
                           </div>
@@ -150,7 +150,7 @@
                             <img src="Gambar/project3.png" class="card-img-top" alt="...">
                             <div class="card-body">
                               <h5 class="card-title">Youtube Link Poject</h5>
-                              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                              <p class="card-text">Iseng-iseng membuat link youtube website.</p>
                               <a href="youtube.html" class="btn btn-primary"  style="background-color: var(--bs-dark-text); color:var(--bs-body-bg)">Discover</a>
                             </div>
                           </div>
@@ -324,6 +324,31 @@
           })
           .catch(error => console.error('Error!', error.message))
       })
+
+
+      //css navbar button style//
+      
+      // Get the button element
+var btn = document.querySelector('.insane-btn');
+
+// Add an event listener for a click
+btn.addEventListener('click', function() {
+  // toggle a class to create an animation
+  btn.classList.toggle('animate');
+});
+
+//Pulsate class//
+// Add the pulsate class to the button on click
+btn.addEventListener('click', function() {
+  btn.classList.toggle('pulsate');
+});
+
+// Add the glow class to the button on click
+btn.addEventListener('click', function() {
+  btn.classList.toggle('glow');
+});
+
+
     </script>
 
   </body>
